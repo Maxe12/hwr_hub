@@ -1,7 +1,9 @@
 import React from 'react';
-import { ImageBackground } from 'react-native';
+import { ImageBackground, AsyncStorage } from 'react-native';
 import { Content, Card, CardItem, Item, Input, Container, Text, Button } from 'native-base';
 import styles from './Styles';
+
+const loginVals = {username: 'root', password: 'password'}
 
 export default class LoginBody extends React.Component {
     constructor(props){
@@ -23,14 +25,19 @@ export default class LoginBody extends React.Component {
                                 <Text style={styles.heading}>Hochschule für Wirtschaft und Recht Berlin</Text>
                             </CardItem>
                             <Item regular>
-                                <Input placeholder='Username' onChange={text => {this.setState({username: text})}} />
+                                <Input placeholder='Username' 
+                                onChangeText={((username)=>this.setState({username}))} 
+                                value={this.state.username} />
                             </Item>
                             <Item regular>
-                                <Input placeholder='Password' onChange={text => {this.setState({password: text})}} />
+                                <Input placeholder='Password'  
+                                secureTextEntry
+                                onChangeText={(password) => this.setState({password})} 
+                                value={this.state.password} />
                             </Item>
                             <Button block 
                             style={{alignSelf: 'center', backgroundColor: 'red'}}
-                            onPress={() => this.loginButtonHandler(this.state.username, this.state.password)}>
+                            onPress={() => this.loginButtonHandler()}>
                                 <Text>Login</Text>
                             </Button>
                         </Card>
@@ -40,12 +47,12 @@ export default class LoginBody extends React.Component {
         );
     }
 
-    loginButtonHandler = (username, password) => {
-        console.log("Username: " + username);
-        if(username === 'root' && password === 'root'){
+    loginButtonHandler = async () => {
+        if(this.state.username === loginVals.username && this.state.password === loginVals.password){
+            await AsyncStorage.setItem('isLoggedIn', '1');
             this.props.navigation.navigate('Main');
         } else {
-            alert("Alert", {text: "Wrong Username/Password"}, "Ok");
+            alert("Username/Password is wrong"); 
         }
     }
 }
