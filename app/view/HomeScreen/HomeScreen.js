@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from 'native-base';
 import Header1 from '../../components/Header/CustomHeader';
-import LoginBody from '../../components/LoginContent/LoginBody';
+import LoginBody from '../../containers/LoginContent/LoginBody';
 
 export default class HomeScreen extends React.Component {
     static navigationOptions = {
