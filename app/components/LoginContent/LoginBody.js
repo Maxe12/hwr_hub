@@ -2,7 +2,9 @@ import React from 'react';
 import { ImageBackground, AsyncStorage } from 'react-native';
 import { Content, Card, CardItem, Item, Input, Container, Text, Button } from 'native-base';
 import styles from './Styles';
+import { Asset } from 'expo-asset';
 
+const backgroundImg = Asset.fromModule(require('../../../assets/images/HWR_Lichtenberg.jpg'));
 const loginVals = {username: 'root', password: 'password'}
 
 export default class LoginBody extends React.Component {
@@ -16,7 +18,7 @@ export default class LoginBody extends React.Component {
     render() {
         return (
             <Container>
-                <ImageBackground source={require('../../assets/images/HWR_Lichtenberg.jpg')}
+                <ImageBackground source={backgroundImg}
                     imageStyle={{ resizeMode: 'stretch' }}
                     style={styles.backgroundImage}>
                     <Content style={styles.loginWindow}>
