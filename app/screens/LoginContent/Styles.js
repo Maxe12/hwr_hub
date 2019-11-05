@@ -7,37 +7,31 @@ const screenHeight = Math.round(Dimensions.get('window').height);
 
 const styles = StyleSheet.create({
     backgroundImage: {
-        flex: 1,
-        width: '100%',
-        height: '100%',
-        justifyContent: "center",
-        alignItems: "center",
-        opacity: 0.9
+        flex: 1, 
     },
     loginWindow: {
         alignContent: 'center',
     },
     heading: {
         color: theme.COLOR_FONT,
-        fontSize: theme.FONT_SIZE_MEDIUM,
+        fontSize: theme.FONT_SIZE_CAPITAL,
     },
     cardItemStyle: {
-        backgroundColor: 'rgba(126, 126, 126, 0)',
+        opacity: 0.8
     },
     cardStyle: {
         alignItems: 'center', 
         width: screenWidth, 
-        height: 300,  
-        backgroundColor: 'white', 
-        opacity: 0.9, 
+        height: 300,    
         borderRadius: 4, 
         borderColor: 'black', 
         borderStyle: 'solid', 
-        justifyContent: 'space-evenly'
+        justifyContent: 'space-evenly', 
+        opacity: 0.8
     }, 
     buttonStyle: {
         alignSelf: 'center', 
-        color: theme.COLOR_MAIN
+        backgroundColor: theme.COLOR_MAIN
     }
 })
 

@@ -1,4 +1,4 @@
-import React from './node_modules/react';
+import React from 'react';
 import { AsyncStorage } from 'react-native';
 import { Container, Text, Button } from 'native-base';
 import Header1 from '../../components/Header/CustomHeader';
@@ -16,7 +16,7 @@ class MainScreen extends React.Component {
                 <Container style={styles.container}>
                     <Greeting />
                 </Container>
-                <Button style={styles.button} onPress={() => this._logout()}>
+                <Button style={styles.buttonStyle} onPress={() => this._logout()}>
                     <Text>Logout</Text>
                 </Button>
             </Container>

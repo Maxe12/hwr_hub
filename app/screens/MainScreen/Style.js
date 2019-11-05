@@ -1,11 +1,11 @@
-import { StyleSheet } from 'react-nativ';
+import { StyleSheet } from 'react-native';
 import theme from '../../modules/Theme';
 
 export default StyleSheet.create({
     container: {
         justifyContent: 'center',
     }, 
-    button: {
+    buttonStyle: {
         backgroundColor: theme.COLOR_MAIN, 
         alignSelf: 'center'
     }

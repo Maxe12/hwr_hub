@@ -1,4 +1,4 @@
-import React from './node_modules/react';
+import React from 'react';
 import { Container } from 'native-base';
 import Header1 from '../../components/Header/CustomHeader';
 import LoginBody from '../LoginContent/LoginBody';
