@@ -23,26 +23,26 @@ class LoginBody extends React.Component {
                 <ImageBackground source={backgroundImg}
                     imageStyle={{ resizeMode: 'stretch' }}
                     style={styles.backgroundImage}>
-                    <CardItem header bordered style={{ marginTop: 10, backgroundColor: 'rgba(215, 215, 212, 0.8)' }}>
-                        <Text style={{ textAlign: 'center', color: 'black' }}>Hochschule für Wirtschaft und Recht</Text>
+                    <CardItem header bordered style={styles.cardItemHeader}>
+                        <Text style={styles.textHeader}>Hochschule für Wirtschaft und Recht</Text>
                     </CardItem>
-                    <CardItem bordered style={{ backgroundColor: 'rgba(215, 215, 212, 0.8)' }}>
+                    <CardItem bordered style={styles.cardItemBody}>
                         <Body>
                             <Text>Bitte einloggen: </Text>
-                            <Item regular style={{ width: 280, marginTop: 20, backgroundColor: 'white' }}>
+                            <Item regular style={styles.inputItems}>
                                 <Input placeholder='Username'
                                     onChangeText={(text) => { this.setState({ username: text }) }}
                                     value={this.state.username} />
                             </Item>
-                            <Item regular style={{ width: 280, marginTop: 20, backgroundColor: 'white' }}>
+                            <Item regular style={styles.inputItems}>
                                 <Input
                                     placeholder='Passwort'
                                     secureTextEntry
                                     onChangeText={(text) => this.setState({ password: text })}
                                     value={this.state.password} />
                             </Item>
-                            <Item style={{ marginTop: 30 }}>
-                                <Button block style={{ backgroundColor: 'red', width: 280 }}
+                            <Item style={styles.buttonItem}>
+                                <Button block style={styles.buttonComponent}
                                     onPress={() => {this.loginButtonHandler()}} >
                                     <Text>Login</Text>
                                 </Button>

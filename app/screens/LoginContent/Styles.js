@@ -1,36 +1,34 @@
 import { StyleSheet } from 'react-native';
-import {Dimensions } from "react-native";
 import theme from '../../modules/Theme';
 
-const screenWidth = Math.round(Dimensions.get('window').width); 
-const screenHeight = Math.round(Dimensions.get('window').height);
+const BACKGROUND_COLOR = 'rgba(215, 215, 212, 0.8)';
+const COMPONENT_WIDTH = 280;
 
 const styles = StyleSheet.create({
     backgroundImage: {
         flex: 1, 
     },
-    loginWindow: {
-        alignContent: 'center',
-    },
-    heading: {
-        color: theme.COLOR_FONT,
-        fontSize: theme.FONT_SIZE_CAPITAL,
-    },
-    cardItemStyle: {
-        opacity: 0.8
-    },
-    cardStyle: {
-        alignItems: 'center', 
-        width: screenWidth, 
-        height: 300,    
-        borderRadius: 4, 
-        borderColor: 'black', 
-        borderStyle: 'solid', 
-        justifyContent: 'space-evenly', 
-        opacity: 0.8
+    cardItemHeader: {
+        backgroundColor: BACKGROUND_COLOR, 
+        marginTop: 10
     }, 
-    buttonStyle: {
-        alignSelf: 'center', 
+    cardItemBody: {
+        backgroundColor: BACKGROUND_COLOR
+    }, 
+    textHeader: {
+        textAlign: 'center', 
+        color: 'black'
+    }, 
+    inputItems: {
+        width: COMPONENT_WIDTH, 
+        marginTop: 20, 
+        backgroundColor: 'white'
+    }, 
+    buttonItem: {
+        marginTop: 30
+    }, 
+    buttonComponent: {
+        width: COMPONENT_WIDTH, 
         backgroundColor: theme.COLOR_MAIN
     }
 })
