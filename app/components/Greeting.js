@@ -7,7 +7,6 @@ class Greeting extends React.Component {
         super(props);
     }
     render() {
-        console.log(this.props)
         return (
             <Text style={{ alignSelf: 'center' }}>Hello {this.props.user.username}</Text>
         );

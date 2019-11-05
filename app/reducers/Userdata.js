@@ -1,16 +1,21 @@
-export default Userdata = (state={}, action) => {
-    switch(action.type){
-        case 'ADD_USERNAME': 
-            state = {...state, username: action.payload};
-            console.log(state);
+/**
+ * @todo check if it works!
+ */
+const defaultState = () =>{
+    return {};
+}
+
+export default Userdata = (state = defaultState, action) => {
+    switch (action.type) {
+        case 'ADD_USERNAME':
+            state = { ...state, username: action.payload };
             return state;
-        case 'GET_USERDATA': 
+        case 'GET_USERDATA':
             return state;
-        case 'REMOVE_USERDATA': 
+        case 'REMOVE_USERDATA':
             state = {};
             return state;
-        //later you can get userdata from it and store it in this state item...
-        default: 
+        default:
             return state;
     }
 }

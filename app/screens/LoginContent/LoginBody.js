@@ -40,7 +40,7 @@ class LoginBody extends React.Component {
                                     value={this.state.password} />
                             </Item>
                             <Button block
-                                style={{ alignSelf: 'center', backgroundColor: 'red' }}
+                                style={styles.buttonStyle}
                                 onPress={() => this.loginButtonHandler()}>
                                 <Text>Login</Text>
                             </Button>
@@ -55,6 +55,7 @@ class LoginBody extends React.Component {
         if (this.state.username == loginVals.username && this.state.password == loginVals.password) {
             this.addUsername(this.state.username);
             await AsyncStorage.setItem('isLoggedIn', '1');
+            await AsyncStorage.setItem('username', this.state.username);
             this.props.navigation.navigate('Main');
         } else {
             alert("Username/Password is wrong");

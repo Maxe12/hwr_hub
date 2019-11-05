@@ -1,0 +1,10 @@
+export default {
+    FONT_SIZE_SMALL: 10, 
+    FONT_SIZE_NORMAL: 12, 
+    FONT_SIZE_LARGE: 14, 
+    FONT_SIZE_CAPITAL: 18, 
+    COLOR_MAIN: '#D50C2F', 
+    COLOR_MAIN_ONFOCUS: '#AA0925',
+    COLOR_FOOTER: '#4F4B41',
+    COLOR_FONT: 'black'
+}

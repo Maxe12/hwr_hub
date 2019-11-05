@@ -1,0 +1,3 @@
+export const ADD_USERNAME = 'ADD_USERNAME';
+export const REMOVE_USERDATA = 'REMOVE_USERDATA';
+export const GET_USERDATA = 'GET_USERDATA';

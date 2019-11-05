@@ -1,8 +1,8 @@
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import HomeScreen from '../../view/HomeScreen/HomeScreen';
-import MainScreen from '../../view/MainScreen/MainScreen';
-import LoadingScreen from '../../view/LoadingScreen/LoadingScreen';
+import HomeScreen from '../../screens/HomeScreen/HomeScreen';
+import MainScreen from '../../screens/MainScreen/MainScreen';
+import LoadingScreen from '../../screens/LoadingScreen/LoadingScreen';
 
 const RootStack = createStackNavigator(
     {
