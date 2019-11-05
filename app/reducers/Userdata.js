@@ -1,7 +1,10 @@
 export default Userdata = (state={}, action) => {
     switch(action.type){
         case 'ADD_USERNAME': 
-            state.username = action.username;
+            state = {...state, username: action.payload};
+            console.log(state);
+            return state;
+        case 'GET_USERDATA': 
             return state;
         case 'REMOVE_USERDATA': 
             state = {};

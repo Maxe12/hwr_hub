@@ -4,6 +4,7 @@ import { Content, Card, CardItem, Item, Input, Container, Text, Button } from 'n
 import styles from './Styles';
 import { Asset } from 'expo-asset';
 import { connect } from 'react-redux';
+import { addUsername } from '../../actions/Index';
 
 const backgroundImg = Asset.fromModule(require('../../../assets/images/HWR_Lichtenberg.jpg'));
 const loginVals = { username: 'root', password: 'password' }
@@ -12,10 +13,8 @@ class LoginBody extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            userdata: {
-                username: '',
-                password: ''
-            }
+            username: '',
+            password: ''
         }
     }
     render() {
@@ -31,14 +30,14 @@ class LoginBody extends React.Component {
                             </CardItem>
                             <Item regular>
                                 <Input placeholder='Username'
-                                    onChangeText={((text) => this.setState({ userdata: {username: text, password: this.state.userdata.password} }))}
-                                    value={this.state.userdata.username} />
+                                    onChangeText={(text) => { this.setState({ username: text }) }}
+                                    value={this.state.username} />
                             </Item>
                             <Item regular>
                                 <Input placeholder='Password'
                                     secureTextEntry
-                                    onChangeText={(text) => this.setState({ userdata: {username: this.state.userdata.username, password: text} })}
-                                    value={this.state.userdata.password} />
+                                    onChangeText={(text) => this.setState({ password: text })}
+                                    value={this.state.password} />
                             </Item>
                             <Button block
                                 style={{ alignSelf: 'center', backgroundColor: 'red' }}
@@ -53,9 +52,8 @@ class LoginBody extends React.Component {
     }
 
     loginButtonHandler = async () => {
-        console.log(this.state.userdata.username);
-        if (this.state.userdata.username == loginVals.username && this.state.userdata.password == loginVals.password) {
-            this.addUsername(this.state.userdata.username);
+        if (this.state.username == loginVals.username && this.state.password == loginVals.password) {
+            this.addUsername(this.state.username);
             await AsyncStorage.setItem('isLoggedIn', '1');
             this.props.navigation.navigate('Main');
         } else {
@@ -64,14 +62,18 @@ class LoginBody extends React.Component {
     }
 
     addUsername = (username) => {
-        this.props.dispatch({ type: 'ADD_USERNAME', username: username });
+        this.props.onLogin(username)
         this.setState({
-            userdata: {
-                username: '',
-                pasword: ''
-            }
+            username: '',
+            password: ''
         })
     }
 }
 
-export default connect()(LoginBody);
+mapDispatchToProps = dispatch => ({
+    onLogin: (username) => {
+        dispatch(addUsername(username));
+    }
+})
+
+export default connect(null, mapDispatchToProps)(LoginBody);
