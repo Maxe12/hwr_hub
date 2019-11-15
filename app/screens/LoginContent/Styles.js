@@ -30,6 +30,12 @@ const styles = StyleSheet.create({
     buttonComponent: {
         width: COMPONENT_WIDTH, 
         backgroundColor: theme.COLOR_MAIN
+    }, 
+    registerText: {
+        marginTop: 20
+    }, 
+    opacityStyle: {
+        color: theme.COLOR_MAIN
     }
 })
 

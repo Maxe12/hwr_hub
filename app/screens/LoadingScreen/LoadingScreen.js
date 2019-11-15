@@ -22,9 +22,6 @@ export default class LoadingScreen extends React.Component {
     }
 
     _loadData = async () => {
-        await Asset.loadAsync([
-            require('../../../assets/images/HWR_Lichtenberg.jpg')
-        ]);
         await Font.loadAsync({
             Roboto: require('../../../node_modules/native-base/Fonts/Roboto.ttf'),
             Roboto_medium: require('../../../node_modules/native-base/Fonts/Roboto_medium.ttf'),

@@ -1,13 +1,12 @@
 import React from 'react';
-import { ImageBackground, AsyncStorage } from 'react-native';
+import { ImageBackground, AsyncStorage, TouchableOpacity } from 'react-native';
 import { CardItem, Item, Input, Container, Text, Button, Body } from 'native-base';
 import styles from './Styles';
-import { Asset } from 'expo-asset';
 import { connect } from 'react-redux';
-import { addUsername } from '../../actions/Index';
+import { addUsername, addEmail } from '../../actions/Index';
 
-const backgroundImg = Asset.fromModule(require('../../../assets/images/HWR_Lichtenberg.jpg'));
 const loginVals = { username: 'root', password: 'password' }
+const backgroundImg = require('../../../assets/images/HWR_Lichtenberg.jpg');
 
 class LoginBody extends React.Component {
     constructor(props) {
@@ -43,9 +42,15 @@ class LoginBody extends React.Component {
                             </Item>
                             <Item style={styles.buttonItem}>
                                 <Button block style={styles.buttonComponent}
-                                    onPress={() => {this.loginButtonHandler()}} >
+                                    onPress={() => { this.loginButtonHandler() }} >
                                     <Text>Login</Text>
                                 </Button>
+                            </Item>
+                            <Item style={styles.registerText}>
+                                <Text>Noch nicht Registriert?</Text>
+                                <TouchableOpacity
+                                onPress={() => {this.props.navigation.navigate('Register')}}
+                                ><Text style={styles.opacityStyle}>Hier Anmelden!</Text></TouchableOpacity>
                             </Item>
                         </Body>
                     </CardItem>
@@ -75,8 +80,8 @@ class LoginBody extends React.Component {
 }
 
 mapDispatchToProps = dispatch => ({
-    onLogin: (username) => {
-        dispatch(addUsername(username));
+    onLogin: (email) => {
+        dispatch(addEmail(email));
     }
 })
 

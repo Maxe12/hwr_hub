@@ -1,12 +1,12 @@
-import { ADD_USERNAME, REMOVE_USERDATA, GET_USERDATA } from './ActionType';
+import { REMOVE_USERDATA, GET_USERDATA, ADD_EMAIL } from './ActionType';
 
 /**
  * 
- * @todo Test this block!
+ * @todo Place API Calls in here
  */
-export const addUsername = username => ({
-    type: ADD_USERNAME,
-    payload: username
+export const addEmail = email => ({
+    type: ADD_EMAIL,
+    payload: email
 })
 
 export const removeUserdata = () => ({
