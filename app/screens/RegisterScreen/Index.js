@@ -57,7 +57,7 @@ class RegisterScreen extends React.Component {
             <Container style={styles.containerStyle}>
                 <Content>
                     <View style={styles.viewStyle}>
-                        <Text style={styles.textStyle}>Bite fülle alle Felder aus um dich zu Registrieren</Text>
+                        <Text style={styles.textStyle}>Bite fülle alle Felder aus, um dich zu Registrieren</Text>
 
                         <Item success={this.state.stateFirst.firstIsValid}
                             error={!this.state.stateFirst.firstIsValid && !this.state.stateFirst.firstrender}
@@ -71,6 +71,7 @@ class RegisterScreen extends React.Component {
                                     this.render();
                                 }
                                 } />
+                            <Icon name={this.getIcon(this.state.stateFirst.firstIsValid)} style={{ opacity: this.state.stateFirst.firstrender ? 0 : 1 }} />
                         </Item>
                         <Item success={this.state.stateLast.lastIsValid}
                             error={!this.state.stateLast.lastIsValid && !this.state.stateLast.firstrender}
@@ -84,6 +85,7 @@ class RegisterScreen extends React.Component {
                                     this.render();
                                 }
                                 } />
+                            <Icon name={this.getIcon(this.state.stateLast.lastIsValid)} style={{ opacity: this.state.stateLast.firstrender ? 0 : 1 }} />
                         </Item>
                         <Item success={this.state.stateMail.emailIsValid}
                             error={!this.state.stateMail.emailIsValid && !this.state.stateMail.firstrender}
@@ -95,6 +97,7 @@ class RegisterScreen extends React.Component {
                                     this.render();
                                 }
                                 } />
+                            <Icon name={this.getIcon(this.state.stateMail.emailIsValid)} style={{ opacity: this.state.stateMail.firstrender ? 0 : 1 }} />
                         </Item>
                         <Item success={this.state.stateMatrknr.matrknrIsValid}
                             error={!this.state.stateMatrknr.matrknrIsValid && !this.state.stateMatrknr.firstrender}
@@ -106,12 +109,14 @@ class RegisterScreen extends React.Component {
                                     this.render();
                                 }
                                 } />
+                            <Icon name={this.getIcon(this.state.stateMatrknr.matrknrIsValid)} style={{ opacity: this.state.stateMatrknr.firstrender ? 0 : 1 }} />
                         </Item>
                         <Item floatingLabel style={styles.itemStyle}>
                             <Label>Was studierst du?</Label>
                             <Input value={this.state.stateStudies.studies}
                                 onChangeText={(text) => { this.validateStudies() }}
                             />
+                            <Icon name={this.getIcon(this.state.stateStudies.studiesIsValid)} style={{ opacity: this.state.stateStudies.firstrender ? 0 : 1 }} />
                         </Item>
                         <Item success={this.state.statePassword.passwordIsValid}
                             error={!this.state.statePassword.passwordIsValid && !this.state.statePassword.firstrender}
@@ -134,12 +139,16 @@ class RegisterScreen extends React.Component {
         /**
          * @todo function that checks if class is in the Database
          */
-        console.log("in");
     }
 
     registerHandler = () => {
         //If all inputs are valid post user to rest API via Redux action
     }
+
+    getIcon = (isValid) => {
+        return isValid ? 'checkmark-circle' : 'close-circle';
+    }
+
 }
 
 export default RegisterScreen;
