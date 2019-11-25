@@ -9,8 +9,7 @@ export default StyleSheet.create({
     }, 
     itemStyle: {
         marginTop: 20, 
-        backgroundColor: 'white', 
-        borderColor: 'black', 
+        backgroundColor: 'white',  
     }, 
     buttonStyle: {
         backgroundColor: theme.COLOR_MAIN, 
