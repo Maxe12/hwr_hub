@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Content, Item, Text, Input, View, Label, Button, Icon } from 'native-base';
+import { Container, Content, Item, Text, Input, View, Label, Button, Icon, CheckBox, Body } from 'native-base';
 import theme from '../../modules/Theme';
 import styles from './Styles';
 import inputValidation from '../../modules/InputValidation';
@@ -46,7 +46,8 @@ class RegisterScreen extends React.Component {
                     password: '',
                     passwordIsValid: false,
                     firstrender: true
-                }
+                },
+                studiesDual: false
             }
     }
     /**
@@ -111,12 +112,25 @@ class RegisterScreen extends React.Component {
                                 } />
                             <Icon name={this.getIcon(this.state.stateMatrknr.matrknrIsValid)} style={{ opacity: this.state.stateMatrknr.firstrender ? 0 : 1 }} />
                         </Item>
-                        <Item floatingLabel style={styles.itemStyle}>
+                        <Item success={this.state.stateStudies.studiesIsValid}
+                            error={!this.state.stateStudies.studiesIsValid && !this.state.stateStudies.firstrender}
+                            floatingLabel style={styles.itemStyle}>
                             <Label>Was studierst du?</Label>
                             <Input value={this.state.stateStudies.studies}
-                                onChangeText={(text) => { this.validateStudies() }}
+                                onChangeText={(text) => {
+                                    this.setState({ stateStudies: { studies: text, studiesIsValid: false, firstrender: true } });
+                                    this.render();
+                                }}
                             />
                             <Icon name={this.getIcon(this.state.stateStudies.studiesIsValid)} style={{ opacity: this.state.stateStudies.firstrender ? 0 : 1 }} />
+                        </Item>
+                        <Item style={styles.itemStyle}>
+                            <CheckBox checked={this.state.studiesDual}
+                                onPress={() => {
+                                    this.setState({ studiesDual: !this.state.studiesDual })
+                                }}
+                                color={theme.COLOR_MAIN_ONFOCUS} />
+                            <Text style={styles.textCheckbox} >Ich studiere Dual</Text>
                         </Item>
                         <Item success={this.state.statePassword.passwordIsValid}
                             error={!this.state.statePassword.passwordIsValid && !this.state.statePassword.firstrender}
@@ -124,9 +138,14 @@ class RegisterScreen extends React.Component {
                             <Label>Passwort</Label>
                             <Input
                                 secureTextEntry
+                                onChangeText={(text) => {
+                                    this.setState({ statePassword: inputValidation(text, 'password') });
+                                    this.render();
+                                }}
                             />
+                            <Icon name={this.getIcon(this.state.statePassword.passwordIsValid)} style={{ opacity: this.state.statePassword.firstrender ? 0 : 1 }} />
                         </Item>
-                        <Button primary style={styles.buttonStyle} onPress={this.registerHandler()}>
+                        <Button primary style={styles.buttonStyle} onPress={() => { this.registerHandler() }}>
                             <Text> Registrieren </Text>
                         </Button>
                     </View>
@@ -135,14 +154,27 @@ class RegisterScreen extends React.Component {
         );
     }
 
-    validateStudies = (text) => {
-        /**
-         * @todo function that checks if class is in the Database
-         */
+    validateStudies = () => {
+        const studies = this.state.stateStudies.studies;
+        const studiesDual = this.state.studiesDual ? "dual" : "Vollzeit";
+        const URL = "localhost:3000/courses/" + studies + "/" + studiesDual;
+        console.log(URL);
+        let response = this.fetchStudiesFromAPI(URL);
+        console.log(response);
+    }
+
+    fetchStudiesFromAPI = async (URL) => {
+        try {
+            let res = await fetch('http://localhost:3000/courses/Wirtschaftsinformatik/dual');
+            let resJSON = await res.json();
+            return resJSON;
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     registerHandler = () => {
-        //If all inputs are valid post user to rest API via Redux action
+        this.validateStudies();
     }
 
     getIcon = (isValid) => {

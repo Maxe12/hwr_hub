@@ -21,5 +21,8 @@ export default StyleSheet.create({
         fontSize: theme.FONT_SIZE_CAPITAL, 
         fontStyle: 'normal', 
         fontWeight: 'bold'
+    }, 
+    textCheckbox: {
+        marginLeft: 20
     }
 })

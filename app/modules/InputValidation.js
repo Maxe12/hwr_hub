@@ -20,6 +20,13 @@ validateInput = (text, labelId) => {
             let isValidm = reMatrknr.test(text);
             state = { matrknr: text, matrknrIsValid: isValidm, firstrender: false };
             return state;
+        case 'password': 
+            let rePwd = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@!+#.,?%&$§<>^)(/)])[0-9a-zA-Z@!+#.,?%&$§<>^)(/)]{8,}$/;
+            let isValidpwd = rePwd.test(text);
+            state = { password: text, passwordIsValid: isValidpwd, firstrender: false};
+            return state;
+        default: 
+            return null;
     }
 }
 
