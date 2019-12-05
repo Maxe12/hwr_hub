@@ -1,4 +1,4 @@
-import { REMOVE_USERDATA, GET_USERDATA, ADD_EMAIL } from './ActionType';
+import { REMOVE_USERDATA, GET_USERDATA, ADD_EMAIL, CREATE_USER } from './ActionType';
 
 /**
  * 
@@ -15,4 +15,9 @@ export const removeUserdata = () => ({
 
 export const getUserData = () => ({
     type: GET_USERDATA
+})
+
+export const createNewUser = (user) => ({
+    type: CREATE_USER, 
+    payload: user
 })

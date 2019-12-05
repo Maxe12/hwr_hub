@@ -3,7 +3,8 @@ import { Container, Content, Item, Text, Input, View, Label, Button, Icon, Check
 import theme from '../../modules/Theme';
 import styles from './Styles';
 import inputValidation from '../../modules/InputValidation';
-import StyleSheet from 'react-native';
+import { connect } from 'react-redux';
+import { createNewUser } from '../../actions/Index';
 
 class RegisterScreen extends React.Component {
     static navigationOptions = {
@@ -50,9 +51,7 @@ class RegisterScreen extends React.Component {
                 studiesDual: false
             }
     }
-    /**
-     * @todo add success = {} and error = {}
-     */
+    
     render() {
         return (
             <Container style={styles.containerStyle}>
@@ -118,8 +117,7 @@ class RegisterScreen extends React.Component {
                             <Label>Was studierst du?</Label>
                             <Input value={this.state.stateStudies.studies}
                                 onChangeText={(text) => {
-                                    this.setState({ stateStudies: { studies: text, studiesIsValid: false, firstrender: true } });
-                                    this.render();
+                                    this.setState({ stateStudies: { studies: text, studiesIsValid: this.state.stateStudies.studiesIsValid, firstrender: this.state.stateStudies.firstrender } })
                                 }}
                             />
                             <Icon name={this.getIcon(this.state.stateStudies.studiesIsValid)} style={{ opacity: this.state.stateStudies.firstrender ? 0 : 1 }} />
@@ -140,7 +138,6 @@ class RegisterScreen extends React.Component {
                                 secureTextEntry
                                 onChangeText={(text) => {
                                     this.setState({ statePassword: inputValidation(text, 'password') });
-                                    this.render();
                                 }}
                             />
                             <Icon name={this.getIcon(this.state.statePassword.passwordIsValid)} style={{ opacity: this.state.statePassword.firstrender ? 0 : 1 }} />
@@ -154,27 +151,62 @@ class RegisterScreen extends React.Component {
         );
     }
 
-    validateStudies = () => {
+    validateStudies = async () => {
         const studies = this.state.stateStudies.studies;
         const studiesDual = this.state.studiesDual ? "dual" : "Vollzeit";
-        const URL = "localhost:3000/courses/" + studies + "/" + studiesDual;
-        console.log(URL);
-        let response = this.fetchStudiesFromAPI(URL);
-        console.log(response);
+
+        const URL = "http://192.168.58.2:3000/courses/" + studies + "/" + studiesDual;
+
+        let response = await this.fetchStudiesFromAPI(URL);
+
+        try {
+            if (response.ANZAHL == 1) {
+                this.state.stateStudies.studiesIsValid = true;
+                this.state.stateStudies.firstrender = false;
+                return true;
+            } else {
+                this.state.stateStudies.studiesIsValid = false;
+                this.state.stateStudies.firstrender = false;
+                return false;
+            }
+        } catch (error) {
+            this.state.stateStudies.studiesIsValid = false;
+            this.state.stateStudies.firstrender = false;
+            return false;
+        }
     }
 
     fetchStudiesFromAPI = async (URL) => {
         try {
-            let res = await fetch('http://localhost:3000/courses/Wirtschaftsinformatik/dual');
+            let res = await fetch(URL);
             let resJSON = await res.json();
-            return resJSON;
+            console.log(resJSON);
+            return resJSON.result;
         } catch (error) {
             console.error(error);
         }
     }
 
-    registerHandler = () => {
-        this.validateStudies();
+    registerHandler = async () => {
+        // if (await this.validateStudies()) {
+        //     createUser();
+        // } else {
+        //     this.setState(this.state);
+        // }
+        this.createUser();
+    }
+
+    createUser = () => {
+        const user = {
+            first: this.state.stateFirst.first, 
+            last: this.state.stateLast.last, 
+            email: this.state.stateMail.email, 
+            matrknr: this.state.stateMatrknr.matrknr, 
+            pw: this.state.statePassword.password, 
+            studies: this.state.stateStudies.studies, 
+            dual: this.state.studiesDual
+        };
+        this.props.newUser(user);
     }
 
     getIcon = (isValid) => {
@@ -183,4 +215,13 @@ class RegisterScreen extends React.Component {
 
 }
 
-export default RegisterScreen;
+mapDispatchToProps = dispatch => ({
+    newUser: (user) => {
+        dispatch(createNewUser(user));
+    }
+})
+
+/**
+ * @todo connect to recux to store state
+ */
+export default connect(null, mapDispatchToProps)(RegisterScreen);

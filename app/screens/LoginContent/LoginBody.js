@@ -3,7 +3,7 @@ import { ImageBackground, AsyncStorage, TouchableOpacity } from 'react-native';
 import { CardItem, Item, Input, Container, Text, Button, Body } from 'native-base';
 import styles from './Styles';
 import { connect } from 'react-redux';
-import { addUsername, addEmail } from '../../actions/Index';
+import { addEmail } from '../../actions/Index';
 
 const loginVals = { username: 'root', password: 'password' }
 const backgroundImg = require('../../../assets/images/HWR_Lichtenberg.jpg');

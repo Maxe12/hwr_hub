@@ -20,9 +20,10 @@ export default Userdata = (state = defaultState, action) => {
                 matrknr: action.payload.matrknr, 
                 pw: action.payload.pw, 
                 studies: action.payload.studies, 
-                universityId: 1808 //also hardcode = current id for HWR in database
+                universityId: 1808, //also hardcode = current id for HWR in database
+                dual: action.payload.dual
             }
-            //here insert user into database?
+        // @todo create person get id from person and then create student  
         case 'REMOVE_USERDATA':
             state = {};
             return state;
