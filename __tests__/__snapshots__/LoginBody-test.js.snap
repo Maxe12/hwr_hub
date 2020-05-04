@@ -1,0 +1,329 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginBody snapChot-test 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#fff",
+      "flex": 1,
+      "height": 1334,
+    }
+  }
+>
+  <View
+    accessibilityIgnoresInvertColors={true}
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <Image
+      source={
+        Asset {
+          "_downloadCallbacks": Array [],
+          "downloaded": false,
+          "downloading": false,
+          "hash": "md5",
+          "height": 1,
+          "localUri": null,
+          "name": "name",
+          "type": "type",
+          "uri": "uri",
+          "width": 1,
+        }
+      }
+      style={
+        Array [
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          },
+          Object {
+            "height": undefined,
+            "width": undefined,
+          },
+          Object {
+            "resizeMode": "stretch",
+          },
+        ]
+      }
+    />
+    <View
+      bordered={true}
+      header={true}
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#fff",
+            "borderBottomWidth": 0.5,
+            "borderColor": "#ccc",
+            "borderRadius": 2,
+            "flexDirection": "row",
+            "paddingBottom": 15,
+            "paddingLeft": 15,
+            "paddingRight": 15,
+            "paddingTop": 15,
+          },
+          Object {
+            "backgroundColor": "rgba(215, 215, 212, 0.8)",
+            "marginTop": 10,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#007aff",
+              "fontFamily": "System",
+              "fontSize": 16,
+              "fontWeight": "600",
+            },
+            Object {
+              "color": "black",
+              "textAlign": "center",
+            },
+          ]
+        }
+        uppercase={false}
+      >
+        Hochschule für Wirtschaft und Recht
+      </Text>
+    </View>
+    <View
+      bordered={true}
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#fff",
+            "borderBottomWidth": 0.5,
+            "borderColor": "#ccc",
+            "borderRadius": 2,
+            "flexDirection": "row",
+            "paddingBottom": 10,
+            "paddingLeft": 15,
+            "paddingRight": 15,
+            "paddingTop": 10,
+          },
+          Object {
+            "backgroundColor": "rgba(215, 215, 212, 0.8)",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "alignSelf": "stretch",
+            "flex": 1,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#000",
+              "fontFamily": "System",
+              "fontSize": 16,
+            }
+          }
+          uppercase={false}
+        >
+          Bitte einloggen: 
+        </Text>
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "white",
+              "borderBottomWidth": 1,
+              "borderColor": "#D9D5DC",
+              "borderLeftWidth": 1,
+              "borderRadius": undefined,
+              "borderRightWidth": 1,
+              "borderTopWidth": 1,
+              "borderWidth": undefined,
+              "flexDirection": "row",
+              "marginLeft": 2,
+              "marginTop": 20,
+              "opacity": 1,
+              "width": 280,
+            }
+          }
+        >
+          <TextInput
+            allowFontScaling={true}
+            editable={true}
+            onChangeText={[Function]}
+            placeholder="Username"
+            placeholderTextColor="#575757"
+            rejectResponderTermination={true}
+            style={
+              Object {
+                "color": "#000",
+                "flex": 1,
+                "fontSize": 17,
+                "height": 50,
+                "paddingLeft": 8,
+                "paddingRight": 5,
+                "top": 1.5,
+              }
+            }
+            underlineColorAndroid="rgba(0,0,0,0)"
+            value=""
+          />
+        </View>
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "white",
+              "borderBottomWidth": 1,
+              "borderColor": "#D9D5DC",
+              "borderLeftWidth": 1,
+              "borderRadius": undefined,
+              "borderRightWidth": 1,
+              "borderTopWidth": 1,
+              "borderWidth": undefined,
+              "flexDirection": "row",
+              "marginLeft": 2,
+              "marginTop": 20,
+              "opacity": 1,
+              "width": 280,
+            }
+          }
+        >
+          <TextInput
+            allowFontScaling={true}
+            editable={true}
+            onChangeText={[Function]}
+            placeholder="Passwort"
+            placeholderTextColor="#575757"
+            rejectResponderTermination={true}
+            secureTextEntry={true}
+            style={
+              Object {
+                "color": "#000",
+                "flex": 1,
+                "fontSize": 17,
+                "height": 50,
+                "paddingLeft": 8,
+                "paddingRight": 5,
+                "top": 1.5,
+              }
+            }
+            underlineColorAndroid="rgba(0,0,0,0)"
+            value=""
+          />
+        </View>
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderBottomWidth": 1,
+              "borderColor": "#D9D5DC",
+              "borderLeftWidth": 0,
+              "borderRadius": undefined,
+              "borderRightWidth": 0,
+              "borderTopWidth": 0,
+              "borderWidth": undefined,
+              "flexDirection": "row",
+              "marginLeft": 2,
+              "marginTop": 30,
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            accessible={true}
+            isTVSelectable={true}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "alignSelf": "stretch",
+                "backgroundColor": "#D50C2F",
+                "borderBottomWidth": null,
+                "borderColor": "#007aff",
+                "borderLeftWidth": null,
+                "borderRadius": 5,
+                "borderRightWidth": null,
+                "borderTopWidth": null,
+                "borderWidth": undefined,
+                "elevation": 2,
+                "flexDirection": "row",
+                "height": 45,
+                "justifyContent": "center",
+                "opacity": 1,
+                "paddingBottom": 6,
+                "paddingTop": 6,
+                "shadowColor": undefined,
+                "shadowOffset": undefined,
+                "shadowOpacity": undefined,
+                "shadowRadius": undefined,
+                "width": 280,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "backgroundColor": "transparent",
+                  "color": "#fff",
+                  "fontFamily": "System",
+                  "fontSize": 16.5,
+                  "marginLeft": 0,
+                  "marginRight": 0,
+                  "paddingLeft": 16,
+                  "paddingRight": 16,
+                }
+              }
+              uppercase={false}
+            >
+              Login
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
